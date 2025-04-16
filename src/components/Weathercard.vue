@@ -27,7 +27,7 @@ let weatherStatus = ref(props.weatherdata.weather[0].main);
 let png = ref(props.weatherdata.weather[0].icon);
 
 //  Dynamically import weather background images
-const images = import.meta.glob('@/assets/*.png', { eager: true });
+const images = import.meta.glob('./assets/*.png', { eager: true });
 const backgroundImageUrl = ref('');
 
 const updateBackgroundImage = () => {
