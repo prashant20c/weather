@@ -1,6 +1,5 @@
 <script setup>
 import { reactive, ref, watch, watchEffect } from 'vue';
-import logo from '@/assets/logo.png';
 
 const props = defineProps({
   weatherdata: {
@@ -27,7 +26,7 @@ let weatherStatus = ref(props.weatherdata.weather[0].main);
 let png = ref(props.weatherdata.weather[0].icon);
 
 //  Dynamically import weather background images
-const images = import.meta.glob('./assets/*.png', { eager: true });
+const images = import.meta.glob('../assets/*.png', { eager: true });
 const backgroundImageUrl = ref('');
 
 const updateBackgroundImage = () => {
@@ -56,17 +55,21 @@ watch(() => props.weatherdata, (newVal) => {
 
 
 <template>
-  <div :style="{ backgroundImage: backgroundImageUrl }"
-    class="text-center font-bold text-gray-800 border-2 border-none rounded-lg  min-w-[400px] min-h-[300px] bg-cover bg-center">
-    
+  <div
+    :style="{ backgroundImage: backgroundImageUrl }"
+    class="text-center font-bold text-gray-800 border-2 border-none rounded-lg min-w-[400px] min-h-[300px] bg-cover bg-center"
+  >
     <div class="mb-4">
       <h2>Current Weather</h2>
       <h1>{{ PlaceName }}</h1>
       <h1>{{ date }}</h1>
     </div>
-
+    
     <div class="font-light">
-      <div :style="{ backgroundImage: weatherPng }" class="w-16 h-16 bg-contain bg-no-repeat mx-auto"></div>
+      <div
+        :style="{ backgroundImage: weatherPng }"
+        class="w-16 h-16 bg-contain bg-no-repeat mx-auto"
+      ></div>
       <div>Now: {{ weatherdata.main.temp }}&deg;C</div>
       <div>Feels like: {{ weatherdata.main.feels_like }}&deg;C</div>
       <div>Clouds: {{ weatherdata.weather[0].main }}</div>
