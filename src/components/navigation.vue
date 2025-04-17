@@ -11,6 +11,7 @@ const placeSuggestion = ref(null)
 
 const searchlocation = async ()=>{placeSuggestion.value=null
    let { data }  = await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${place.value}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`)
+   console.log(data)
    placeSuggestion.value = data.results
 }
 

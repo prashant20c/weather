@@ -57,7 +57,7 @@ watch(() => props.weatherdata, (newVal) => {
 <template>
   <div
     :style="{ backgroundImage: backgroundImageUrl }"
-    class="text-center font-bold text-gray-800 border-2 border-none rounded-lg min-w-[400px] min-h-[300px] bg-cover bg-center"
+    class="text-center font-bold text-black-800 border-2 border-none rounded-lg min-w-[400px] min-h-[300px] bg-cover bg-center"
   >
     <div class="mb-4">
       <h2>Current Weather</h2>
@@ -65,7 +65,7 @@ watch(() => props.weatherdata, (newVal) => {
       <h1>{{ date }}</h1>
     </div>
     
-    <div class="font-light">
+    <div class="font-bold">
       <div
         :style="{ backgroundImage: weatherPng }"
         class="w-16 h-16 bg-contain bg-no-repeat mx-auto"
